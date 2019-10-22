@@ -38,6 +38,7 @@ public:
     void reset();
 
     //getters
+    double getAngularMomentum();
     double getMass();
     double getRadius();
     double getMaxSpeed();

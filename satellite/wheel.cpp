@@ -36,6 +36,11 @@ void Wheel::activateTorqueMode(double power){
 }
 
 
+double Wheel::getAngularMomentum()
+{
+    return angularMomentum;
+}
+
 void Wheel::controllerSpeed(double time_step){
     t+=time_step;
 

@@ -1,6 +1,6 @@
 #include "neurocontroller.h"
 #include "ui_mainwindow.h"
-#include "satellite/wheel.h"
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,7 +14,13 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_applySatBtn_clicked()
+{
+    double mass = ui->cubesatMassEdit->text().toDouble();
+    double length = ui->cubesatLengthEdit->text().toDouble();
 
+    satellite = new Cubesat(mass,length);
+}
 
 void MainWindow::on_applyWheelBtn_clicked()
 {
@@ -23,5 +29,7 @@ void MainWindow::on_applyWheelBtn_clicked()
     double maxSpeed = ui->wheelMaxSpeedEdit->text().toDouble();
     double maxTorque = ui->wheelMaxTorqueEdit->text().toDouble();
 
-    wheel = new Wheel(mass,radius,maxSpeed,maxTorque);
+    Wheel* wheel = new Wheel(mass,radius,maxSpeed,maxTorque);
+    satellite->setWheel(wheel);
 }
+
