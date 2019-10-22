@@ -19,10 +19,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     neurocontroller.cpp \
+    satellite/cubesat.cpp \
+    satellite/satellite.cpp \
     satellite/wheel.cpp \
 
 HEADERS += \
     neurocontroller.h \
+    satellite/cubesat.h \
+    satellite/satellite.h \
     satellite/wheel.h \
 
 

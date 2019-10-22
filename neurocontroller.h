@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QComboBox>
 #include <satellite/wheel.h>
+#include <satellite/cubesat.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,12 +16,14 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    Wheel* wheel = new Wheel(0,0,0,0);
+    Satellite* satellite;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
     void on_applyWheelBtn_clicked();
+
+    void on_applySatBtn_clicked();
 
 private:
     Ui::MainWindow *ui;
