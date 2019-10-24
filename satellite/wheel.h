@@ -43,6 +43,7 @@ public:
     double getRadius();
     double getMaxSpeed();
     double getMaxTorque();
+    double getInertia() const;
 };
 
 

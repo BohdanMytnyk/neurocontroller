@@ -17,6 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    controller/controller.cpp \
+    controller/pid.cpp \
     main.cpp \
     neurocontroller.cpp \
     satellite/cubesat.cpp \
@@ -24,6 +26,8 @@ SOURCES += \
     satellite/wheel.cpp \
 
 HEADERS += \
+    controller/controller.h \
+    controller/pid.h \
     neurocontroller.h \
     satellite/cubesat.h \
     satellite/satellite.h \

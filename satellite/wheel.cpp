@@ -9,8 +9,14 @@ Wheel::Wheel(double mass, double radius, double maxSpeed, double maxTorque)
     this->maxTorque = maxTorque;
     this->speed = 0;
     this->inertia = 0.5*mass*pow(radius,2);
-    this->angularMomentum = inertia*speed;
+    this->angularMomentum = 0;
     Kp = 0.0325; sample_time = 0.01; t = 0;
+}
+
+double Wheel::getAngularMomentum()
+{
+    angularMomentum = speed*inertia;
+    return angularMomentum;
 }
 
 //power is a value in percents of max speed to take desired speed
@@ -35,10 +41,9 @@ void Wheel::activateTorqueMode(double power){
     desiredTorque = power*maxTorque;
 }
 
-
-double Wheel::getAngularMomentum()
+double Wheel::getInertia() const
 {
-    return angularMomentum;
+    return inertia;
 }
 
 void Wheel::controllerSpeed(double time_step){
