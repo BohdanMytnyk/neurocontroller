@@ -2,6 +2,7 @@
 #define SATELLITE_H
 
 #include "wheel.h"
+#include "utils.h"
 
 class Satellite{
     protected:
