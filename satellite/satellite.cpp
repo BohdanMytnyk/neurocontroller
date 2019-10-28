@@ -21,6 +21,9 @@ void Satellite::update(double time_step){
 
     speed = angularMomentum/inertia; // L = I*w  =>  w = L/I
 
+    speed = disturb(speed, t);
+    speed = applyNoise(speed);
+
     wheel->update(time_step);
 }
 

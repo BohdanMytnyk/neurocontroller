@@ -32,6 +32,7 @@ HEADERS += \
     satellite/cubesat.h \
     satellite/satellite.h \
     satellite/wheel.h \
+    utils.h
 
 
 # Default rules for deployment.
