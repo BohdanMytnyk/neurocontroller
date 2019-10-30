@@ -33,3 +33,10 @@ void MainWindow::on_applyWheelBtn_clicked()
     satellite->setWheel(wheel);
 }
 
+
+void MainWindow::on_applyCompSatBtn_clicked()
+{
+    double inertia = ui->ComplexSatInteria->text().toDouble();
+
+    satellite = new ComplexSat(inertia);
+}
