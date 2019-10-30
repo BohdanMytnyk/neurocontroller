@@ -24,7 +24,10 @@ SOURCES += \
     satellite/cubesat.cpp \
     satellite/satellite.cpp \
     satellite/wheel.cpp \
-    satellite/complexsat.cpp
+    satellite/complexsat.cpp \
+    simulation/command.cpp \
+    simulation/controlledsim.cpp \
+    simulation/simulation.cpp
 
 HEADERS += \
     controller/controller.h \
@@ -34,6 +37,9 @@ HEADERS += \
     satellite/satellite.h \
     satellite/wheel.h \
     satellite/complexsat.h \
+    simulation/command.h \
+    simulation/controlledsim.h \
+    simulation/simulation.h \
     utils.h
 
 

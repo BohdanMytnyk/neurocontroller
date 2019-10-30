@@ -4,7 +4,7 @@
 
 #include "controller.h"
 
-class PID : Controller
+class PID :public Controller
 {
     private:
         double Kp, Ki, Kd; // P,I,D
