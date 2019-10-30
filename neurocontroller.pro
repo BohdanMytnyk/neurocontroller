@@ -24,6 +24,7 @@ SOURCES += \
     satellite/cubesat.cpp \
     satellite/satellite.cpp \
     satellite/wheel.cpp \
+    satellite/complexsat.cpp
 
 HEADERS += \
     controller/controller.h \
@@ -32,7 +33,9 @@ HEADERS += \
     satellite/cubesat.h \
     satellite/satellite.h \
     satellite/wheel.h \
+    satellite/complexsat.h \
     utils.h
+
 
 
 # Default rules for deployment.

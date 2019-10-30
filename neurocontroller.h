@@ -6,6 +6,7 @@
 #include <QComboBox>
 #include <satellite/wheel.h>
 #include <satellite/cubesat.h>
+#include <satellite/complexsat.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,6 +25,8 @@ private slots:
     void on_applyWheelBtn_clicked();
 
     void on_applySatBtn_clicked();
+
+    void on_applyCompSatBtn_clicked();
 
 private:
     Ui::MainWindow *ui;
