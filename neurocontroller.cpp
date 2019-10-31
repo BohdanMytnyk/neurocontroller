@@ -1,10 +1,5 @@
 #include "neurocontroller.h"
 #include "ui_mainwindow.h"
-#include "/Users/admin/Documents/neurocontroller/satellite/satellite.h"
-#include "/Users/admin/Documents/neurocontroller/simulation/controlledsim.h"
-#include "/Users/admin/Documents/neurocontroller/simulation/command.h"
-#include "/Users/admin/Documents/neurocontroller/satellite/cubesat.h"
-#include "/Users/admin/Documents/neurocontroller/controller/pid.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
