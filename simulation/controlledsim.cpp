@@ -1,11 +1,19 @@
 #include "controlledsim.h"
 
+std::vector<double> ControlledSim::getT_values() const
+{
+    return t_values;
+}
+
+std::vector<double> ControlledSim::getSpeed_values() const
+{
+    return speed_values;
+}
+
 ControlledSim::ControlledSim(Satellite* sat, Controller* ctrl, double t) : Simulation(sat,t)
 {
     this->sat = sat;
     this->ctrl = ctrl;
-    this->t = new double[steps + 1];
-    this->speed_values = new double[steps + 1];
 }
 
 void ControlledSim::putCommand(Command* cmd)
@@ -20,8 +28,8 @@ void ControlledSim::run()
     for(double t = 0.0; t < duration; t+=TIME_STEP)
     {
         //Write status of sat in array
-        this->t[index] = t;
-        this->speed_values[index] = sat->getSpeed();
+        t_values.push_back(t);
+        speed_values.push_back(sat->getSpeed());
         index++;
 
         //search for a valid command
@@ -37,7 +45,6 @@ void ControlledSim::run()
 
         //update the satellite
         sat->update(TIME_STEP);
-
     }
 }
 

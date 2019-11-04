@@ -5,8 +5,8 @@
 
 #include<random>
 
-#define DISTURBANCE_FREQUENCZ 0.02
-#define DISTURBANCE_PERCENTAGE 0.01
+#define DISTURBANCE_FREQUENCZ 0.01
+#define DISTURBANCE_PERCENTAGE 0.005
 
 static double dist_freq = DISTURBANCE_FREQUENCZ;
 static double dist_perc = DISTURBANCE_PERCENTAGE;
