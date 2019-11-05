@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>commandWindow</class>
- <widget class="QDialog" name="commandWindow">
+ <class>CommandWindow</class>
+ <widget class="QDialog" name="CommandWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>348</width>
-    <height>179</height>
+    <width>384</width>
+    <height>164</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,50 +17,56 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>20</y>
-     <width>292</width>
-     <height>128</height>
+     <y>30</y>
+     <width>321</width>
+     <height>101</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="0" colspan="2">
-     <widget class="QLabel" name="speed_label">
-      <property name="text">
-       <string>Desired speed/rad/s</string>
-      </property>
-     </widget>
+   <layout class="QVBoxLayout" name="verticalLayout1">
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="0" colspan="2">
+       <widget class="QLabel" name="speed_label">
+        <property name="text">
+         <string>Desired speed/rad/s</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLineEdit" name="xEdit"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="time_label">
+        <property name="text">
+         <string>Time/s</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" colspan="2">
+       <widget class="QLineEdit" name="timeEdit"/>
+      </item>
+     </layout>
     </item>
-    <item row="1" column="2">
-     <widget class="QLineEdit" name="speedInput"/>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="time_label">
-      <property name="text">
-       <string>Time/s</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1" colspan="2">
-     <widget class="QLineEdit" name="timeInput"/>
-    </item>
-    <item row="2" column="0" colspan="3">
-     <widget class="QDialogButtonBox" name="buttonBox_2">
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="standardButtons">
-       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-      </property>
-      <property name="centerButtons">
-       <bool>true</bool>
-      </property>
-     </widget>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout1">
+      <item>
+       <widget class="QPushButton" name="cmdOk">
+        <property name="text">
+         <string>Ok</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cmdCancel">
+        <property name="text">
+         <string>Cancel</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>

@@ -7,6 +7,9 @@
 #include <satellite/wheel.h>
 #include <satellite/cubesat.h>
 #include <satellite/complexsat.h>
+#include <ui/commandwindow.h>
+//IMPORTANT TO CHANGE <simulation/command.h> (collect all .h files together)
+#include <simulation/command.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -28,7 +31,10 @@ private slots:
 
     void on_applyCompSatBtn_clicked();
 
+    void on_addCmd_clicked();
+
 private:
     Ui::MainWindow *ui;
+    CommandWindow *commandWindow;
 };
 #endif // MAINWINDOW_H

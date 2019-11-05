@@ -4,19 +4,26 @@
 #include <QDialog>
 
 namespace Ui {
-class commandWindow;
+class CommandWindow;
 }
 
-class commandWindow : public QDialog
+class CommandWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit commandWindow(QWidget *parent = 0);
-    ~commandWindow();
+    explicit CommandWindow(QWidget *parent = 0);
+    ~CommandWindow();
+    bool return_ok;
+    double t, x;
+
+private slots:
+    void on_cmdOk_clicked();
+
+    void on_cmdCancel_clicked();
 
 private:
-    Ui::commandWindow *ui;
+    Ui::CommandWindow *ui;
 };
 
 #endif // COMMANDWINDOW_H

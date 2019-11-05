@@ -1,14 +1,28 @@
 #include "commandwindow.h"
 #include "ui_commandwindow.h"
 
-commandWindow::commandWindow(QWidget *parent) :
+CommandWindow::CommandWindow(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::commandWindow)
+    ui(new Ui::CommandWindow)
 {
     ui->setupUi(this);
 }
 
-commandWindow::~commandWindow()
+CommandWindow::~CommandWindow()
 {
     delete ui;
+}
+
+void CommandWindow::on_cmdOk_clicked()
+{
+    t = ui->timeEdit->text().toDouble();
+    x = ui->xEdit->text().toDouble();
+    return_ok = true;
+    this->close();
+}
+
+void CommandWindow::on_cmdCancel_clicked()
+{
+    return_ok = false;
+    this->close();
 }

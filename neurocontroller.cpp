@@ -40,3 +40,21 @@ void MainWindow::on_applyCompSatBtn_clicked()
     satellite = new ComplexSat(inertia);
 }
 
+void MainWindow::on_addCmd_clicked()
+{
+    commandWindow = new CommandWindow(this);
+    commandWindow->setWindowTitle("New Command");
+    commandWindow->setModal(true);
+    commandWindow->exec();
+    if (commandWindow->return_ok)
+    {
+        //Why do we delete the first item?
+        //ui->cmdComboBox->removeItem(ui->cmdComboBox->currentIndex());
+        double t = commandWindow->t;
+        double x = commandWindow->x;
+
+        Command* cmd = new Command(t, x);
+        QString str = QString("%1s, %2rad/s").arg(t).arg(x);
+        ui->cmdComboBox->addItem(str, QVariant::fromValue(cmd));
+    }
+}
