@@ -21,6 +21,7 @@ SOURCES += \
     controller/pid.cpp \
     main.cpp \
     neurocontroller.cpp \
+    sample.cpp \
     satellite/cubesat.cpp \
     satellite/satellite.cpp \
     satellite/wheel.cpp \
@@ -35,6 +36,7 @@ HEADERS += \
     controller/controller.h \
     controller/pid.h \
     neurocontroller.h \
+    sample.h \
     satellite/cubesat.h \
     satellite/satellite.h \
     satellite/wheel.h \
