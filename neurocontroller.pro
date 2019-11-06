@@ -29,9 +29,12 @@ SOURCES += \
     satellite/complexsat.cpp \
     simulation/command.cpp \
     simulation/controlledsim.cpp \
+
+    ui/commandwindow.cpp
     simulation/instructedsim.cpp \
-    /Users/admin/Documents/neurocontroller/simulation/instruction.cpp \
+    simulation/instruction.cpp \
     simulation/simulation.cpp \
+
 
 HEADERS += \
     controller/controller.h \
@@ -48,7 +51,8 @@ HEADERS += \
     simulation/instructedsim.h \
     simulation/instruction.h \
     simulation/simulation.h \
-    utils.h
+    utils.h \
+    ui/commandwindow.h
 
 
 
@@ -57,4 +61,5 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 FORMS += \
-    ui/mainwindow.ui
+    ui/mainwindow.ui \
+    ui/commandwindow.ui
