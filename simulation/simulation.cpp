@@ -1,5 +1,6 @@
 #include "simulation.h"
 
+
 Simulation::Simulation(Satellite* satellite, double duration)
 {
     this->sat = satellite;
@@ -13,4 +14,9 @@ long Simulation::getSteps(){
 
 Satellite* Simulation::getSatellite(){
     return sat;
+}
+
+void Simulation::setDuration(double t)
+{
+    duration = t;
 }

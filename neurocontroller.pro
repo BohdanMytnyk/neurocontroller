@@ -19,9 +19,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     controller/controller.cpp \
     controller/pid.cpp \
+    controller/sample.cpp \
+    controller/samplegenerator.cpp \
     main.cpp \
     neurocontroller.cpp \
-    sample.cpp \
     satellite/cubesat.cpp \
     satellite/satellite.cpp \
     satellite/wheel.cpp \
@@ -35,8 +36,9 @@ SOURCES += \
 HEADERS += \
     controller/controller.h \
     controller/pid.h \
+    controller/sample.h \
+    controller/samplegenerator.h \
     neurocontroller.h \
-    sample.h \
     satellite/cubesat.h \
     satellite/satellite.h \
     satellite/wheel.h \

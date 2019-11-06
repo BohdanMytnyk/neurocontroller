@@ -18,6 +18,7 @@ class Simulation
 
         long getSteps();
         Satellite* getSatellite();
+        void setDuration(double t);
 };
 
 #endif // SIMULATION_H
