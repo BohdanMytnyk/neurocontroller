@@ -23,11 +23,11 @@ void ControlledSim::putCommand(Command* cmd)
 
 void ControlledSim::run()
 {
-    //Simulation start
+    //starting the simulation
     int index = 0;
     for(double t = 0.0; t < duration; t+=TIME_STEP)
     {
-        //Write status of sat in array
+        //writing an actual time and speed for the future plotting
         t_values.push_back(t);
         speed_values.push_back(sat->getSpeed());
         index++;
