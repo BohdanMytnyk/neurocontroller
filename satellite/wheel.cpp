@@ -9,7 +9,7 @@ Wheel::Wheel(double mass, double radius, double maxSpeed, double maxTorque)
     this->maxTorque = maxTorque;
     this->speed = 0;
     this->inertia = 0.5*mass*pow(radius,2);
-    this->angularMomentum = 0;
+    this->angularMomentum = speed*inertia;
     Kp = 0.0325; sample_time = 0.01; t = 0;
 }
 
@@ -66,9 +66,9 @@ void Wheel::controllerSpeed(double time_step){
 
 void Wheel::controllerTorque(double time_step){
     if( desiredTorque > torque)
-        torque += maxTorque /time_step*T_MAX_TORQUE
+        torque += time_step* maxTorque /T_MAX_TORQUE
     else if( desiredTorque < torque)
-        torque -= maxTorque /time_step*T_MAX_TORQUE
+        torque -= time_step* maxTorque /T_MAX_TORQUE
 
     if( torque < -maxTorque)
         torque = -maxTorque;
