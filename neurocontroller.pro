@@ -27,12 +27,10 @@ SOURCES += \
     satellite/complexsat.cpp \
     simulation/command.cpp \
     simulation/controlledsim.cpp \
-
-    ui/commandwindow.cpp
+    ui/commandwindow.cpp \
     simulation/instructedsim.cpp \
     simulation/instruction.cpp \
     simulation/simulation.cpp \
-
 
 HEADERS += \
     controller/controller.h \
@@ -48,7 +46,7 @@ HEADERS += \
     simulation/instruction.h \
     simulation/simulation.h \
     utils.h \
-    ui/commandwindow.h
+    ui/commandwindow.h \
 
 
 
