@@ -1,5 +1,8 @@
 #include "sample.h"
 
+Sample::Sample(){
+}
+
 Sample::Sample(double dt, double dw, double u){
     this->dt = dt;
     this->dw = dw;
