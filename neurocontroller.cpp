@@ -48,7 +48,6 @@ void MainWindow::on_addCmd_clicked()
     commandWindow->exec();
     if (commandWindow->return_ok)
     {
-        //Why do we delete the first item?
         //ui->cmdComboBox->removeItem(ui->cmdComboBox->currentIndex());
         double t = commandWindow->t;
         double x = commandWindow->x;
@@ -57,4 +56,28 @@ void MainWindow::on_addCmd_clicked()
         QString str = QString("%1s, %2rad/s").arg(t).arg(x);
         ui->cmdComboBox->addItem(str, QVariant::fromValue(cmd));
     }
+}
+
+void MainWindow::on_editCmd_clicked()
+{
+    Command * cmd = ui->cmdComboBox->itemData(ui->cmdComboBox->currentIndex()).value<Command*>(); //currentData().value<Command*>();
+    if (cmd == nullptr) return;
+    commandWindow = new CommandWindow(this, cmd->getTime(), cmd->getDesiredSpeed());
+    commandWindow->setWindowTitle("Edit Command");
+    commandWindow->setModal(true);
+    commandWindow->exec();
+    if (commandWindow->return_ok)
+    {
+        ui->cmdComboBox->removeItem(ui->cmdComboBox->currentIndex());
+        double t = commandWindow->t;
+        double x = commandWindow->x;
+        cmd = new Command(t, x);
+        QString str = QString("%1s, %2rad/s").arg(t).arg(x);
+        ui->cmdComboBox->addItem(str, QVariant::fromValue(cmd));
+    }
+}
+
+void MainWindow::on_removeCmd_clicked()
+{
+    ui->cmdComboBox->removeItem(ui->cmdComboBox->currentIndex());
 }
