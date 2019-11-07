@@ -59,7 +59,71 @@ vector<Sample> SampleGenerator::generate(int numOfSamples){
 
         sat->reset();
     }
+
+    for(int i = 0; i < numOfSamples/100*4; i++){
+        //generate random time interval
+        dt = round(t_distr(random) * 1000.0)/1000.0;
+
+        sim.setDuration(dt);
+
+        //generate 0 controller output
+        double u = 0;
+
+        //apply output u to the wheel of a satellite
+        sat->getWheel()->activateTorqueMode(u);
+
+        //calculate dw
+        double dw = sat->getSpeed()/dt;
+
+        //create sample
+        Sample* sample = new Sample(dt,round(inputScaling*dw),u);
+
+        samples.push_back(*sample);
+
+        sat->reset();
+    }
     gen_stopped = false;
 
     return samples;
 }
+
+void SampleGenerator::save(vector<Sample> &samples, const char *fileName){
+    ofstream out(fileName);
+    Sample s;
+
+    for(size_t i = 0; i < samples.size(); i++){
+        s = samples.at(i);
+        out << s.t() << ";" << s.w() << ";" << s.u_value() << endl;
+    }
+
+    out.flush();
+}
+
+vector<Sample> SampleGenerator::load(const char *filename){
+    vector<Sample> samples = *(new vector<Sample>());
+
+    ifstream file(filename);
+    string line;
+
+    while(getline(file,line)){
+        stringstream linestr(line);
+        string item;
+
+        //read all parameters
+        getline(linestr, item, ';');
+        double dt = QString(item.c_str()).toDouble();
+
+        getline(linestr, item, ';');
+        double dw = QString(item.c_str()).toDouble();
+
+        getline(linestr, item, ';');
+        double u = QString(item.c_str()).toDouble();
+
+
+        samples.push_back(*(new Sample(dt, dw, u)));
+    }
+
+    return samples;
+}
+
+

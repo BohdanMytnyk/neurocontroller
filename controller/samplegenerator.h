@@ -5,6 +5,8 @@
 #include "../satellite/satellite.h"
 #include "../simulation/instructedsim.h"
 #include <QObject>
+#include <fstream>
+#include <sstream>
 
 #define SPEED_RANGE 0.1
 #define TIME_RANGE 5
@@ -39,8 +41,8 @@ public:
     void setInputScaling(double inputScaling);
 
     vector<Sample> generate(int numOfSamples);
-    void save(vector<Sample> &samples, const char *fileName);
-    void load(const char *filename);
+    static void save(vector<Sample> &samples, const char *fileName);
+    static vector<Sample> load(const char *filename);
 };
 
 #endif // SAMPLEGENERATOR_H

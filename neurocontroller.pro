@@ -29,8 +29,7 @@ SOURCES += \
     satellite/complexsat.cpp \
     simulation/command.cpp \
     simulation/controlledsim.cpp \
-
-    ui/commandwindow.cpp
+    ui/commandwindow.cpp \
     simulation/instructedsim.cpp \
     simulation/instruction.cpp \
     simulation/simulation.cpp \
