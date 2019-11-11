@@ -1,6 +1,6 @@
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++11
 QMAKE_CXXFLAGS += -std=c++11
@@ -27,9 +27,12 @@ SOURCES += \
     satellite/complexsat.cpp \
     simulation/command.cpp \
     simulation/controlledsim.cpp \
+    ui/commandwindow.cpp \
     simulation/instructedsim.cpp \
-    /Users/admin/Documents/neurocontroller/simulation/instruction.cpp \
+    simulation/instruction.cpp \
     simulation/simulation.cpp \
+    qcustomplot.cpp
+
 
 HEADERS += \
     controller/controller.h \
@@ -44,7 +47,9 @@ HEADERS += \
     simulation/instructedsim.h \
     simulation/instruction.h \
     simulation/simulation.h \
-    utils.h
+    utils.h \
+    ui/commandwindow.h \
+    qcustomplot.h
 
 
 
@@ -53,4 +58,5 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 FORMS += \
-    ui/mainwindow.ui
+    ui/mainwindow.ui \
+    ui/commandwindow.ui
