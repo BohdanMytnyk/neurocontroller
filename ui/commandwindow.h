@@ -12,10 +12,10 @@ class CommandWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit CommandWindow(QWidget *parent = 0, double t = 0, double x = 0);
+    explicit CommandWindow(QWidget *parent = 0, double t = 0, double w = 0);
     ~CommandWindow();
     bool return_ok;
-    double t, x;
+    double t, w;
 
 private slots:
     void on_cmdOk_clicked();
