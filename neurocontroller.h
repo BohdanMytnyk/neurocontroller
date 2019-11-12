@@ -8,7 +8,6 @@
 #include <satellite/cubesat.h>
 #include <satellite/complexsat.h>
 #include <ui/commandwindow.h>
-//IMPORTANT TO CHANGE <simulation/command.h> (collect all .h files together)
 #include <simulation/command.h>
 #include "controller/controller.h"
 #include "controller/pid.h"
@@ -36,15 +35,20 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_applyWheelBtn_clicked();
+    //void on_applyWheelBtn_clicked();
 
-    void on_applySatBtn_clicked();
+    //void on_applySatBtn_clicked();
 
-    void on_applyCompSatBtn_clicked();
+    //void on_applyCompSatBtn_clicked();
 
     void on_addCmd_clicked();
 
     void on_startSimulation_clicked();
+
+    void on_editCmd_clicked();
+
+    void on_removeCmd_clicked();
+
 
 private:
     Ui::MainWindow *ui;

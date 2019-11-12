@@ -10,6 +10,10 @@ std::vector<double> ControlledSim::getSpeed_values() const
     return speed_values;
 }
 
+
+
+
+
 ControlledSim::ControlledSim(Satellite* sat, Controller* ctrl, double t) : Simulation(sat,t)
 {
     this->sat = sat;

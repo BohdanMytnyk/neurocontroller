@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>834</height>
+    <width>938</width>
+    <height>790</height>
    </rect>
   </property>
   <property name="font">
@@ -64,19 +64,6 @@
      <attribute name="title">
       <string>CubeSat</string>
      </attribute>
-     <widget class="QPushButton" name="applySatBtn">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>50</y>
-        <width>211</width>
-        <height>27</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Apply</string>
-      </property>
-     </widget>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
@@ -287,13 +274,6 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="0" colspan="2">
-       <widget class="QPushButton" name="applyWheelBtn">
-        <property name="text">
-         <string>Apply</string>
-        </property>
-       </widget>
-      </item>
      </layout>
     </widget>
    </widget>
@@ -338,7 +318,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit"/>
+      <widget class="QLineEdit" name="durationEdit"/>
      </item>
      <item>
       <widget class="QTabWidget" name="tab_sim">
@@ -456,8 +436,8 @@
      <rect>
       <x>260</x>
       <y>30</y>
-      <width>521</width>
-      <height>481</height>
+      <width>661</width>
+      <height>491</height>
      </rect>
     </property>
    </widget>
@@ -506,7 +486,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>938</width>
      <height>25</height>
     </rect>
    </property>
