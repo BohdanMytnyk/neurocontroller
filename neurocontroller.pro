@@ -1,6 +1,6 @@
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++11
 QMAKE_CXXFLAGS += -std=c++11
@@ -34,6 +34,8 @@ SOURCES += \
     simulation/instructedsim.cpp \
     simulation/instruction.cpp \
     simulation/simulation.cpp \
+    qcustomplot.cpp
+
 
 HEADERS += \
     controller/controller.h \
@@ -382,6 +384,8 @@ HEADERS += \
     simulation/simulation.h \
     utils.h \
     ui/commandwindow.h \
+    qcustomplot.h \
+
 
 
 
