@@ -89,3 +89,57 @@ double DNN::control(double desiredSpeed, double speed, double t){
     }
 }
 
+void DNN::save(const char *fileName){
+    ofstream file(fileName);
+
+    file << inputScaling << endl;
+    file << hiddenLayers << endl;
+    file << neurons << endl;
+
+    vector<vector<double>> params = net.get_parameters();
+
+    ostream_iterator<Scalar> out_iterator(file, " ");
+
+    for(const auto& row : params){
+        copy(row.cbegin(),row.cend(),out_iterator);
+        file << endl;
+    }
+}
+
+DNN* DNN::construct(const char *fileName){
+    ifstream file(fileName);
+    string line;
+
+    getline(file, line);
+    double c = stod(line);
+
+    getline(file, line);
+    int h_layers = stoi(line);
+
+    getline(file, line);
+    int n_neurons = stoi(line);
+
+    DNN* dnn = new DNN(h_layers,n_neurons);
+    dnn->setInputScaling(c);
+
+    vector<vector<Scalar>> params;
+
+    while(getline(file,line)){
+        stringstream linestream(line);
+        string item;
+        vector<Scalar> tmp;
+        while (getline(linestream, item, ' ')) {
+            QString qitem(item.c_str());
+            tmp.push_back(qitem.toDouble());
+        }
+        params.push_back(tmp);
+    }
+
+    dnn->net.init(0,0.01,40);
+    dnn->net.set_parameters(params);
+
+    return dnn;
+}
+
+
+
