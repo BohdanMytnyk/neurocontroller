@@ -1,10 +1,11 @@
 #ifndef DNN_H
 #define DNN_H
+#include <fstream>
+#include <sstream>
 #include "controller.h"
 #include "sample.h"
 #include "samplegenerator.h"
 #include "../lib/MiniDNN/MiniDNN.h"
-
 
 using namespace MiniDNN;
 using namespace Eigen;
@@ -27,6 +28,9 @@ public:
 
     void train(std::vector<Sample> samples, int batchSize, int epoch);
     double control(double desiredSpeed, double speed, double t) override;
+
+    void save(const char* fileName);
+    static DNN* construct(const char* fileName);
 };
 
 #endif // DNN_H
