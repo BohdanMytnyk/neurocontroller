@@ -138,3 +138,13 @@ void MainWindow::on_removeCmd_clicked()
 {
     ui->cmdComboBox->removeItem(ui->cmdComboBox->currentIndex());
 }
+
+void MainWindow::on_train_clicked()
+{
+    readSat();
+    trainWizzard = new TrainWizzard(this, sat, scaling);
+    trainWizzard->setWindowTitle("DNN Training Wizzard");
+    trainWizzard->setModal(true);
+    trainWizzard->exec();
+    //TODO action when ok pressed
+}

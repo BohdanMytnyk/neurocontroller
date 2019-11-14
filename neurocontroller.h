@@ -12,6 +12,7 @@
 #include "controller/controller.h"
 #include "controller/pid.h"
 #include "simulation/controlledsim.h"
+#include "ui/trainwizzard.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +28,8 @@ private:
     void readSat();
     Controller* ctrl;
     ControlledSim* simulation;
+    Satellite* sat;
+    double scaling;
 
 
 public:
@@ -50,8 +53,11 @@ private slots:
     void on_removeCmd_clicked();
 
 
+    void on_train_clicked();
+
 private:
     Ui::MainWindow *ui;
     CommandWindow *commandWindow;
+    TrainWizzard *trainWizzard;
 };
 #endif // MAINWINDOW_H
