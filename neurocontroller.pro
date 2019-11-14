@@ -34,7 +34,9 @@ SOURCES += \
     simulation/instructedsim.cpp \
     simulation/instruction.cpp \
     simulation/simulation.cpp \
-    qcustomplot.cpp
+    qcustomplot.cpp \
+    ui/trainwizzard.cpp \
+    ui/samplewizzard.cpp
 
 
 HEADERS += \
@@ -385,6 +387,8 @@ HEADERS += \
     utils.h \
     ui/commandwindow.h \
     qcustomplot.h \
+    ui/trainwizzard.h \
+    ui/samplewizzard.h
 
 
 
@@ -395,7 +399,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 FORMS += \
     ui/mainwindow.ui \
-    ui/commandwindow.ui
+    ui/commandwindow.ui \
+    ui/trainwizzard.ui \
+    ui/samplewizzard.ui
 
 DISTFILES += \
     lib/Eigen/CMakeLists.txt
