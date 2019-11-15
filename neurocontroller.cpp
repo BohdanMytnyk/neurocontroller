@@ -152,7 +152,6 @@ void MainWindow::on_train_clicked()
     trainWizzard->setModal(true);
     trainWizzard->exec();
 
-
     //setting the DNN when it's trained
     netFile = new QString("");
     dnn = trainWizzard->getDNN();
