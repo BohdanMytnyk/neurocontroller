@@ -148,3 +148,18 @@ void MainWindow::on_train_clicked()
     trainWizzard->exec();
     //TODO action when ok pressed
 }
+
+void MainWindow::on_loadNet_clicked()
+{
+
+        netFile = new QString (QFileDialog::getOpenFileName(this, tr("Import network"), "", tr("DNN files (*.dnn);;All Files (*)")));
+        if (netFile->isEmpty()) return;
+        DNN::construct(netFile->toLocal8Bit().data());
+
+        char* netFileTmp = netFile->toLocal8Bit().data();
+        QFileInfo fi(netFileTmp);
+
+        ui->dnnStatus->setText(fi.fileName());
+        ui->saveDnn->setEnabled(true);
+
+}

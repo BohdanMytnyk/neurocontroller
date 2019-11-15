@@ -30,6 +30,7 @@ private:
     ControlledSim* simulation;
     Satellite* sat;
     double scaling;
+    QString * netFile;
 
 
 public:
@@ -54,6 +55,8 @@ private slots:
 
 
     void on_train_clicked();
+
+    void on_loadNet_clicked();
 
 private:
     Ui::MainWindow *ui;
