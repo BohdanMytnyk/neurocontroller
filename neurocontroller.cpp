@@ -36,6 +36,9 @@ void MainWindow::on_startSimulation_clicked()
     double duration = ui->durationEdit->text().toDouble();
     if (ui->tab_sim->currentIndex() == 0){
         ctrl = new PID(ui->kp->text().toDouble(), ui->ki->text().toDouble(), ui->kd->text().toDouble());
+    }else{
+        dnn->reset();
+        ctrl = dnn;
     }
 
     simulation = new ControlledSim(satellite, ctrl, duration);
@@ -142,9 +145,14 @@ void MainWindow::on_removeCmd_clicked()
 void MainWindow::on_train_clicked()
 {
     readSat();
-    trainWizzard = new TrainWizzard(this, sat, scaling);
+    trainWizzard = new TrainWizzard(this, satellite, scaling);
     trainWizzard->setWindowTitle("DNN Training Wizzard");
     trainWizzard->setModal(true);
     trainWizzard->exec();
     //TODO action when ok pressed
+
+    //setting the DNN when it's trained
+    dnn = trainWizzard->getDNN();
+    ui->dnnStatus->setText("DNN loaded.");
+    ui->saveDnn->setEnabled(true);
 }

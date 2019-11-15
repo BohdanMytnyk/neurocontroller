@@ -23,84 +23,31 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_2">
+    <item row="7" column="0">
+     <widget class="QLabel" name="label_8">
       <property name="text">
-       <string>Batchsize</string>
+       <string>Learing Rate</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="1">
-     <widget class="QLineEdit" name="neurons">
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_4">
       <property name="text">
-       <string>50</string>
+       <string># of Layers</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QLabel" name="samplesStatus">
+    <item row="1" column="0">
+     <widget class="QLabel" name="label">
       <property name="text">
-       <string>No Samples Loaded.</string>
+       <string/>
       </property>
      </widget>
     </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="label_7">
+    <item row="7" column="1">
+     <widget class="QLineEdit" name="lrate">
       <property name="text">
-       <string>Samples:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="epoch">
-      <property name="text">
-       <string>500</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string># of Epoches</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QPushButton" name="generate">
-        <property name="text">
-         <string>Open Sample Generator</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="load">
-        <property name="text">
-         <string>Load</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="4" column="1">
-     <widget class="QLineEdit" name="layers">
-      <property name="text">
-       <string>1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string># of Neurons / Layer</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="label_6">
-      <property name="text">
-       <string>Optimizer</string>
+       <string>0.0007</string>
       </property>
      </widget>
     </item>
@@ -123,13 +70,6 @@
       </item>
      </widget>
     </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string># of Layers</string>
-      </property>
-     </widget>
-    </item>
     <item row="2" column="1">
      <widget class="QLineEdit" name="batch">
       <property name="text">
@@ -137,24 +77,84 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_7">
       <property name="text">
-       <string/>
+       <string>Samples:</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="0">
-     <widget class="QLabel" name="label_8">
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_3">
       <property name="text">
-       <string>Learing Rate</string>
+       <string># of Epoches</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="1">
-     <widget class="QLineEdit" name="lrate">
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="epoch">
       <property name="text">
-       <string>0.0007</string>
+       <string>500</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="generate">
+        <property name="text">
+         <string>Open Sample Generator</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="load">
+        <property name="text">
+         <string>Load</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string># of Neurons / Layer</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Optimizer</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Batchsize</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="samplesStatus">
+      <property name="text">
+       <string>No Samples Loaded.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="neurons">
+      <property name="text">
+       <string>50</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="layers">
+      <property name="text">
+       <string>1</string>
       </property>
      </widget>
     </item>
@@ -221,6 +221,38 @@
    </property>
    <property name="text">
     <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>310</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>DNN status:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dnnStatusLabel">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>310</y>
+     <width>161</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>not trained</string>
    </property>
   </widget>
  </widget>
