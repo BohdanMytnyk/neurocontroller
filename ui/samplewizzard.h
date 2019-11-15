@@ -6,7 +6,7 @@
 #include "controller/samplegenerator.h"
 #if defined(Q_OS_LINUX)
    #include <QtConcurrentRun>
-#else
+#elif defined(Q_OS_MACOS)
    #include <QtConcurrent/QtConcurrentRun>
 #endif
 

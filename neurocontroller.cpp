@@ -36,7 +36,9 @@ void MainWindow::on_startSimulation_clicked()
     double duration = ui->durationEdit->text().toDouble();
     if (ui->tab_sim->currentIndex() == 0){
         ctrl = new PID(ui->kp->text().toDouble(), ui->ki->text().toDouble(), ui->kd->text().toDouble());
-    }else{
+    } else if (!netFile->isEmpty()){
+        ctrl = DNN::construct(netFile->toLocal8Bit().data());
+    } else {
         dnn->reset();
         ctrl = dnn;
     }
@@ -149,10 +151,33 @@ void MainWindow::on_train_clicked()
     trainWizzard->setWindowTitle("DNN Training Wizzard");
     trainWizzard->setModal(true);
     trainWizzard->exec();
-    //TODO action when ok pressed
 
     //setting the DNN when it's trained
+    netFile = new QString("");
     dnn = trainWizzard->getDNN();
     ui->dnnStatus->setText("DNN loaded.");
     ui->saveDnn->setEnabled(true);
+}
+
+void MainWindow::on_loadNet_clicked()
+{
+
+        netFile = new QString (QFileDialog::getOpenFileName(this, tr("Import network"), "", tr("DNN files (*.dnn);;All Files (*)")));
+        if (netFile->isEmpty()) return;
+        DNN::construct(netFile->toLocal8Bit().data());
+
+        char* netFileTmp = netFile->toLocal8Bit().data();
+        QFileInfo fi(netFileTmp);
+
+        ui->dnnStatus->setText(fi.fileName());
+        ui->saveDnn->setEnabled(true);
+
+}
+
+void MainWindow::on_saveDnn_clicked()
+{
+    QString qFileName = QFileDialog::getSaveFileName(this, tr("Import network"), "", tr("DNN files (*.dnn);;All Files (*)"));
+    if(qFileName.isEmpty()) return;
+
+    dnn->save(strcat(qFileName.toLocal8Bit().data(),static_cast<char*>(".dnn")));
 }
