@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>938</width>
-    <height>790</height>
+    <width>946</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="font">
@@ -51,7 +51,7 @@
       <x>20</x>
       <y>30</y>
       <width>221</width>
-      <height>111</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -141,26 +141,13 @@
      </widget>
     </widget>
    </widget>
-   <widget class="Line" name="line">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>140</y>
-      <width>221</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
    <widget class="QFrame" name="wheel_frame">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>160</y>
+      <y>120</y>
       <width>221</width>
-      <height>221</height>
+      <height>211</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -200,36 +187,12 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>50</y>
+       <y>40</y>
        <width>221</width>
        <height>164</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="wheel_layout">
-      <item row="2" column="0">
-       <widget class="QLineEdit" name="wheelMassEdit">
-        <property name="autoFillBackground">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="wheel_mass_label">
-        <property name="text">
-         <string>Mass</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0" alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="radius_label">
-        <property name="text">
-         <string>Radius</string>
-        </property>
-       </widget>
-      </item>
       <item row="4" column="0">
        <widget class="QLineEdit" name="wheelRadiusEdit">
         <property name="autoFillBackground">
@@ -237,6 +200,30 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="max_speed_wheel_label">
+        <property name="text">
+         <string>Max speed</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLineEdit" name="wheelMassEdit">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" alignment="Qt::AlignHCenter">
+       <widget class="QLabel" name="radius_label">
+        <property name="text">
+         <string>Radius</string>
         </property>
        </widget>
       </item>
@@ -254,16 +241,6 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="max_speed_wheel_label">
-        <property name="text">
-         <string>Max speed</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
       <item row="4" column="1">
        <widget class="QLineEdit" name="wheelMaxTorqueEdit">
         <property name="autoFillBackground">
@@ -274,6 +251,16 @@
         </property>
        </widget>
       </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="wheel_mass_label">
+        <property name="text">
+         <string>Mass</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </widget>
@@ -281,7 +268,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>390</y>
+      <y>330</y>
       <width>221</width>
       <height>251</height>
      </rect>
@@ -379,8 +366,8 @@
         <widget class="QPushButton" name="loadNet">
          <property name="geometry">
           <rect>
-           <x>1</x>
-           <y>100</y>
+           <x>0</x>
+           <y>90</y>
            <width>80</width>
            <height>22</height>
           </rect>
@@ -392,7 +379,7 @@
         <widget class="QPushButton" name="train">
          <property name="geometry">
           <rect>
-           <x>161</x>
+           <x>150</x>
            <y>50</y>
            <width>61</width>
            <height>22</height>
@@ -443,8 +430,8 @@
          </property>
          <property name="geometry">
           <rect>
-           <x>160</x>
-           <y>100</y>
+           <x>150</x>
+           <y>90</y>
            <width>61</width>
            <height>22</height>
           </rect>
@@ -461,8 +448,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>640</y>
+      <x>20</x>
+      <y>590</y>
       <width>271</width>
       <height>94</height>
      </rect>
@@ -514,16 +501,16 @@
       <x>260</x>
       <y>30</y>
       <width>661</width>
-      <height>491</height>
+      <height>541</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="startSimulation">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>530</y>
-      <width>141</width>
+      <x>330</x>
+      <y>590</y>
+      <width>151</width>
       <height>27</height>
      </rect>
     </property>
@@ -534,8 +521,8 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>570</y>
+      <x>340</x>
+      <y>630</y>
       <width>67</width>
       <height>17</height>
      </rect>
@@ -563,7 +550,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>938</width>
+     <width>946</width>
      <height>25</height>
     </rect>
    </property>

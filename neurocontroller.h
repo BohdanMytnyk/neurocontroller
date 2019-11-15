@@ -14,6 +14,8 @@
 #include "simulation/controlledsim.h"
 #include "ui/trainwizzard.h"
 
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -24,9 +26,9 @@ class MainWindow : public QMainWindow
 
     //Simulation stuff comes right here
 private:
-
     void readSat();
     Controller* ctrl;
+    DNN* dnn; //pointer for dnn if it exists
     ControlledSim* simulation;
     Satellite* sat;
     double scaling;
@@ -39,11 +41,6 @@ public:
     ~MainWindow();
 
 private slots:
-    //void on_applyWheelBtn_clicked();
-
-    //void on_applySatBtn_clicked();
-
-    //void on_applyCompSatBtn_clicked();
 
     void on_addCmd_clicked();
 
@@ -57,6 +54,8 @@ private slots:
     void on_train_clicked();
 
     void on_loadNet_clicked();
+
+    void on_saveDnn_clicked();
 
 private:
     Ui::MainWindow *ui;
