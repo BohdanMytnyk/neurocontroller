@@ -3,8 +3,12 @@
 
 #include <QDialog>
 #include <QFileDialog>
-//#include <QtConcurrent>
 #include "controller/samplegenerator.h"
+#if defined(Q_OS_LINUX)
+   #include <QtConcurrentRun>
+#else
+   #include <QtConcurrent/QtConcurrentRun>
+#endif
 
 namespace Ui {
 class SampleWizzard;
@@ -17,13 +21,19 @@ class SampleWizzard : public QDialog
 public:
     explicit SampleWizzard(QWidget *parent = nullptr, Satellite *sat = nullptr, double scaling =INPUT_SCALING);
     ~SampleWizzard();
-//    vector<Sample>
+    vector<Sample> getSamples();
+
+private slots:
+    void on_generate_clicked();
 
 private:
     Ui::SampleWizzard *ui;
-    SampleGenerator gen;
+    SampleGenerator* gen;
+    void generate();
     Satellite *sat;
+    vector<Sample> samples;
     double scaling;
+
 };
 
 #endif // SAMPLEWIZZARD_H
