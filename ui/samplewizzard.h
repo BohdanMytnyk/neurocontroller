@@ -6,7 +6,7 @@
 #include "controller/samplegenerator.h"
 #if defined(Q_OS_LINUX)
    #include <QtConcurrentRun>
-#else
+#elif defined(Q_OS_MACOS)
    #include <QtConcurrent/QtConcurrentRun>
 #endif
 
@@ -22,9 +22,12 @@ public:
     explicit SampleWizzard(QWidget *parent = nullptr, Satellite *sat = nullptr, double scaling =INPUT_SCALING);
     ~SampleWizzard();
     vector<Sample> getSamples();
+//    void saveSamples();
 
 private slots:
     void on_generate_clicked();
+
+    void on_saveSamples_clicked();
 
 private:
     Ui::SampleWizzard *ui;

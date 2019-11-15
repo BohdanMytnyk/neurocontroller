@@ -2,7 +2,7 @@
 #define TRAINWIZZARD_H
 #if defined(Q_OS_LINUX)
    #include <QtConcurrentRun>
-#else
+#elif defined(Q_OS_MACOS)
    #include <QtConcurrent/QtConcurrentRun>
 #endif
 #include <QDialog>
@@ -29,6 +29,12 @@ private slots:
     void on_generate_clicked();
 
     void on_start_clicked();
+
+    void on_load_clicked();
+
+    void on_cancel_clicked();
+
+    void on_saveSamples_clicked();
 
 private:
     Ui::TrainWizzard *ui;

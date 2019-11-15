@@ -66,3 +66,25 @@ void TrainWizzard::trainNetwork(){
 DNN* TrainWizzard::getDNN(){
     return dnn;
 }
+
+void TrainWizzard::on_load_clicked()
+{
+    QString qFileName = QFileDialog::getOpenFileName(this, tr("Import samples"), "", tr("Tables (*.csv);;All Files (*)"));
+    samples = SampleGenerator::load(qFileName.toLocal8Bit().data());
+    QFileInfo fi(qFileName);
+    ui->samplesStatus->setText(fi.fileName() + " loaded.");
+}
+
+void TrainWizzard::on_cancel_clicked()
+{
+    this->close();
+}
+
+void TrainWizzard::on_saveSamples_clicked()
+{
+    QString qFileName = QFileDialog::getSaveFileName(this, tr("Export samples"), "", tr("Tables (*.csv);;All Files (*)"));
+    if (qFileName.isEmpty()) return;
+//    vector<Sample> sampleVec = getSamples();
+//    SampleGenerator->save(samples, strcat(qFileName.toLocal8Bit().data(),static_cast<char*>(".csv")));
+    SampleGenerator::save(samples, strcat(qFileName.toLocal8Bit().data(),static_cast<char*>(".csv")));
+}
