@@ -30,6 +30,12 @@ private slots:
 
     void on_start_clicked();
 
+    void on_load_clicked();
+
+    void on_cancel_clicked();
+
+    void on_saveSamples_clicked();
+
 private:
     Ui::TrainWizzard *ui;
     Satellite* sat;

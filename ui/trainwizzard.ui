@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>520</width>
+    <width>939</width>
     <height>362</height>
    </rect>
   </property>
@@ -18,15 +18,89 @@
     <rect>
      <x>9</x>
      <y>9</y>
-     <width>501</width>
-     <height>291</height>
+     <width>566</width>
+     <height>308</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string># of Neurons / Layer</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Batchsize</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="2">
+     <widget class="QLineEdit" name="lrate">
+      <property name="text">
+       <string>0.0007</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string># of Epoches</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Samples:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QLineEdit" name="layers">
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="generate">
+        <property name="text">
+         <string>Open Sample Generator</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="load">
+        <property name="text">
+         <string>Load</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
     <item row="7" column="0">
      <widget class="QLabel" name="label_8">
       <property name="text">
        <string>Learing Rate</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLineEdit" name="batch">
+      <property name="text">
+       <string>1</string>
       </property>
      </widget>
     </item>
@@ -37,21 +111,14 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label">
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_6">
       <property name="text">
-       <string/>
+       <string>Optimizer</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="1">
-     <widget class="QLineEdit" name="lrate">
-      <property name="text">
-       <string>0.0007</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="1">
+    <item row="6" column="2">
      <widget class="QComboBox" name="optimizer">
       <item>
        <property name="text">
@@ -70,93 +137,37 @@
       </item>
      </widget>
     </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="batch">
-      <property name="text">
-       <string>1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="label_7">
-      <property name="text">
-       <string>Samples:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string># of Epoches</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
+    <item row="3" column="2">
      <widget class="QLineEdit" name="epoch">
       <property name="text">
        <string>500</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QPushButton" name="generate">
-        <property name="text">
-         <string>Open Sample Generator</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="load">
-        <property name="text">
-         <string>Load</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string># of Neurons / Layer</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="label_6">
-      <property name="text">
-       <string>Optimizer</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Batchsize</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLabel" name="samplesStatus">
-      <property name="text">
-       <string>No Samples Loaded.</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
+    <item row="5" column="2">
      <widget class="QLineEdit" name="neurons">
       <property name="text">
        <string>50</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="1">
-     <widget class="QLineEdit" name="layers">
-      <property name="text">
-       <string>1</string>
-      </property>
-     </widget>
+    <item row="1" column="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="samplesStatus">
+        <property name="text">
+         <string>No Samples Loaded.</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="saveSamples">
+        <property name="text">
+         <string>Save samples</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
