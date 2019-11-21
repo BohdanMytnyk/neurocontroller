@@ -179,5 +179,5 @@ void MainWindow::on_saveDnn_clicked()
     QString qFileName = QFileDialog::getSaveFileName(this, tr("Import network"), "", tr("DNN files (*.dnn);;All Files (*)"));
     if(qFileName.isEmpty()) return;
 
-    dnn->save(strcat(qFileName.toLocal8Bit().data(),static_cast<char*>(".dnn")));
+    dnn->save(strcat(qFileName.toLocal8Bit().data(),(".dnn")));
 }

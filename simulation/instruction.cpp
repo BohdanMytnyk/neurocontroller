@@ -7,6 +7,6 @@ Instruction::Instruction(double t, Wheel* wheel, double power){
 }
 
 void Instruction::execIfReady(double t){
-    if(std::abs(this->t - t ) < 0.01)
+    if(std::abs(this->t - t ) < 0.01) //executing the instruction if its time has come
         wheel->activateSpeedMode(power);
 }

@@ -10,10 +10,6 @@ std::vector<double> ControlledSim::getSpeed_values() const
     return speed_values;
 }
 
-
-
-
-
 ControlledSim::ControlledSim(Satellite* sat, Controller* ctrl, double t) : Simulation(sat,t)
 {
     this->sat = sat;
@@ -31,7 +27,7 @@ void ControlledSim::run()
     int index = 0;
     for(double t = 0.0; t < duration; t+=TIME_STEP)
     {
-        //writing an actual time and speed for the future plotting
+        //collecting an actual time and speed for the future plotting
         t_values.push_back(t);
         speed_values.push_back(sat->getSpeed());
         index++;

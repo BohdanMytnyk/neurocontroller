@@ -14,7 +14,7 @@ double Command::getTime(){
 }
 
 double Command::acceptIfReady(double oldSpeedValue, double t){
-    if(std::abs(this->t - t) < 0.01)
+    if(std::abs(this->t - t) < 0.01) //applying the command if its time has come
         return desiredSpeed;
     return oldSpeedValue;
 }
