@@ -55,6 +55,7 @@ void DNN::train(std::vector<Sample> samples, int batchSize, int epoch){
 
     Sample s;
 
+    //setting time and speed as input and U as output
     for(size_t i = 0; i < samples.size(); i++){
         s = samples.at(i);
 
@@ -72,6 +73,7 @@ double DNN::control(double desiredSpeed, double speed, double t){
     else{
         double error = desiredSpeed - speed;
 
+        //scaling the speed
         double scaledSpeed = inputScaling*error/dt;
 
         //feed the input
@@ -82,13 +84,17 @@ double DNN::control(double desiredSpeed, double speed, double t){
         //predict the output
         MatrixXd u = net.predict(input);
 
+        //remembering the time
         lastTime = t;
+
+        //getting output
         output = u(0,0);
 
         return output;
     }
 }
 
+//saving the dnn into a file
 void DNN::save(const char *fileName){
     ofstream file(fileName);
 
@@ -106,6 +112,7 @@ void DNN::save(const char *fileName){
     }
 }
 
+//constructing the dnn from a file
 DNN* DNN::construct(const char *fileName){
     ifstream file(fileName);
     string line;

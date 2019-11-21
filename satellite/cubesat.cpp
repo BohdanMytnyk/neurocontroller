@@ -9,6 +9,7 @@ Cubesat::Cubesat(double mass, double length)
 }
 
 double Cubesat::getInertia(){
+    //calculating the inertia of cube
     double I = (mass/6)*pow(length,2);
 
     return I;

@@ -37,13 +37,12 @@ public:
     void update(double time_step);
     void reset();
 
-    //getters
     double getAngularMomentum();
     double getMass();
     double getRadius();
     double getMaxSpeed();
     double getMaxTorque();
-    double getInertia() const;
+    double getInertia();
 };
 
 

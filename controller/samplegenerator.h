@@ -23,13 +23,12 @@ class SampleGenerator : QObject
 private:
     Satellite* sat;
 
+    //distributions of parameters for randomization
     uniform_real_distribution<double> w_distr;
     uniform_real_distribution<double> t_distr;
     uniform_real_distribution<double> u_distr;
 
     default_random_engine random;
-
-    bool gen_stopped;
 
     double inputScaling;
 

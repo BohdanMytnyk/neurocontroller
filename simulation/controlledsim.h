@@ -6,7 +6,7 @@
 #include "../controller/controller.h"
 #include <vector>
 
-
+//controlled sim is used, when controller calculates and changes the speed of the satellite in real-time
 class ControlledSim :public Simulation
 {
 private:
@@ -15,6 +15,7 @@ private:
     double desiredSpeed;
     std::vector<Command*> commands;
 
+    //arrays with collected values for plotting after the simulation
     std::vector<double> t_values;
     std::vector<double> speed_values;
 public:

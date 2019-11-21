@@ -17,10 +17,6 @@ class Satellite{
         void setWheel(Wheel* wheel);
         Wheel* getWheel();
 
-//        double roll();
-//        double pitch();
-//        double yaw();
-
         void update(double time_step);
         void reset();
 

@@ -19,7 +19,7 @@ double Wheel::getAngularMomentum()
     return angularMomentum;
 }
 
-//power is a value in percents of max speed to take desired speed
+//power is a value in percents from max speed to take desired speed
 void Wheel::activateSpeedMode(double power){
     CTRL_MODE = MODE_SPEED;
 
@@ -30,7 +30,7 @@ void Wheel::activateSpeedMode(double power){
     desiredSpeed = power*maxSpeed;
 }
 
-//power is a value in percents of max torque to take desired torque
+//power is a value in percents from max torque to take desired torque
 void Wheel::activateTorqueMode(double power){
     CTRL_MODE = MODE_TORQUE;
 
@@ -41,7 +41,7 @@ void Wheel::activateTorqueMode(double power){
     desiredTorque = power*maxTorque;
 }
 
-double Wheel::getInertia() const
+double Wheel::getInertia()
 {
     return inertia;
 }
@@ -53,6 +53,7 @@ void Wheel::controllerSpeed(double time_step){
         double error = desiredSpeed - speed;
         desiredTorque = Kp*error;
 
+        //if desired torque is too high/low for the wheel choose a highest/lowest possible value
         if(desiredTorque<-maxTorque)
             desiredTorque = -maxTorque;
         else if(desiredTorque>maxTorque)
@@ -70,6 +71,7 @@ void Wheel::controllerTorque(double time_step){
     else if( desiredTorque < torque)
         torque -= time_step* maxTorque /T_MAX_TORQUE
 
+    //if desired torque is too high/low for the wheel choose a highest/lowest possible value
     if( torque < -maxTorque)
         torque = -maxTorque;
     else if( torque > maxTorque)
@@ -77,7 +79,7 @@ void Wheel::controllerTorque(double time_step){
 
 }
 
-//updating of the wheel every step of time
+//updating of the wheel at step of time
 void Wheel::update(double time_step){
     switch(CTRL_MODE)
     {
@@ -92,6 +94,7 @@ void Wheel::update(double time_step){
     double a = torque/inertia; //finding the acceleration
     speed += a*time_step; // w = a*dt
 
+    //if speed is too high/low for the wheel we choose highest/lowest possible value
     if(speed > maxSpeed)
         speed = maxSpeed;
     else if(speed < -maxSpeed)

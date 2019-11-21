@@ -7,6 +7,7 @@ TrainWizzard::TrainWizzard(QWidget *parent, Satellite *sat, double scaling) :
 {
     ui->setupUi(this);
     this->sat = sat;
+    ui->start->setEnabled(false);
 }
 
 TrainWizzard::~TrainWizzard()
@@ -23,6 +24,7 @@ void TrainWizzard::on_generate_clicked()
 
     ui->samplesStatus->setText("Samples ready.");
     samples = sampleWizzard->getSamples();
+    ui->start->setEnabled(true);
 }
 
 void TrainWizzard::on_start_clicked()
@@ -73,6 +75,7 @@ void TrainWizzard::on_load_clicked()
     samples = SampleGenerator::load(qFileName.toLocal8Bit().data());
     QFileInfo fi(qFileName);
     ui->samplesStatus->setText(fi.fileName() + " loaded.");
+    ui->start->setEnabled(true);
 }
 
 void TrainWizzard::on_cancel_clicked()
@@ -86,5 +89,5 @@ void TrainWizzard::on_saveSamples_clicked()
     if (qFileName.isEmpty()) return;
 //    vector<Sample> sampleVec = getSamples();
 //    SampleGenerator->save(samples, strcat(qFileName.toLocal8Bit().data(),static_cast<char*>(".csv")));
-    SampleGenerator::save(samples, strcat(qFileName.toLocal8Bit().data(),static_cast<char*>(".csv")));
+    SampleGenerator::save(samples, strcat(qFileName.toLocal8Bit().data(),(".csv")));
 }

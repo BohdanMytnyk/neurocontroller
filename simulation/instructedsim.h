@@ -4,6 +4,7 @@
 #include "instruction.h"
 #include <vector>
 
+//instructed sim is used, when you have direct instructions of changing the speed for a satellite
 class InstructedSim :public Simulation
 {
 private:

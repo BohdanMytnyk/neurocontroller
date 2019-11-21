@@ -14,8 +14,8 @@ class DNN : public Controller
 {
 private:
     Network net;
-    Optimizer* opt;
-    int hiddenLayers, neurons;
+    Optimizer* opt; //training optimizer from MiniDNN lib(for example, Gradient descent)
+    int hiddenLayers, neurons; //num of hidden layers and of neurons per layer
     double inputScaling;
 
 public:

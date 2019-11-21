@@ -6,8 +6,6 @@ SampleGenerator::SampleGenerator()
     t_distr = uniform_real_distribution<double>(0.5, TIME_RANGE);
     u_distr = uniform_real_distribution<double>(-SIGNAL_RANGE, SIGNAL_RANGE);
 
-    gen_stopped = false;
-
     inputScaling = INPUT_SCALING;
 }
 
@@ -33,7 +31,6 @@ vector<Sample> SampleGenerator::generate(int numOfSamples){
     InstructedSim sim(sat, 0);
 
     for(int i = 0; i < numOfSamples; i++){
-        if (gen_stopped) break;
 
         //generate random time interval
         dt = round(t_distr(random) * 1000.0)/1000.0;
@@ -82,11 +79,12 @@ vector<Sample> SampleGenerator::generate(int numOfSamples){
 
         sat->reset();
     }
-    gen_stopped = false;
 
     return samples;
 }
 
+
+//save the samples into a file
 void SampleGenerator::save(vector<Sample> &samples, const char *fileName){
     ofstream out(fileName);
     Sample s;
@@ -99,6 +97,7 @@ void SampleGenerator::save(vector<Sample> &samples, const char *fileName){
     out.flush();
 }
 
+//save the samples from a file
 vector<Sample> SampleGenerator::load(const char *filename){
     vector<Sample> samples = *(new vector<Sample>());
 

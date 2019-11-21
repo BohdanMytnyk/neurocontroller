@@ -16,11 +16,11 @@ double PID::control(double desiredSpeed, double speed, double t){
     double dt = t - lastTime;
 
     if(dt < 0.5) return output;
-
-    //processing
     else{
+
         double error = desiredSpeed - speed;
 
+        //calculating integral part if Ki exists
         if(Ki != 0.0) {
             if(-BOUND< u && u <BOUND ) S += Ki*error*dt;
             else if(u < -BOUND) S = -BOUND;
@@ -28,10 +28,10 @@ double PID::control(double desiredSpeed, double speed, double t){
         }
 
 
-        //process deriavative of measurement
+        //calculating deriavative of measurement
         double dError = (desiredSpeed - lastDesiredSpeed)/dt - (error - lastError)/dt;
 
-        //proccessing the output u
+        //calculating the output u
         u = Kp*error + S + Kd*dError;
 
         if(u < -BOUND) u = -BOUND;
