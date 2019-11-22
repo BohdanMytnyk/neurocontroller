@@ -100,7 +100,7 @@
     <item row="2" column="2">
      <widget class="QLineEdit" name="batch">
       <property name="text">
-       <string>1</string>
+       <string>50</string>
       </property>
      </widget>
     </item>
@@ -140,7 +140,7 @@
     <item row="3" column="2">
      <widget class="QLineEdit" name="epoch">
       <property name="text">
-       <string>500</string>
+       <string>100</string>
       </property>
      </widget>
     </item>

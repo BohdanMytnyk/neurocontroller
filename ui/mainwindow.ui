@@ -55,7 +55,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="usesScrollButtons">
      <bool>true</bool>
@@ -101,19 +101,6 @@
      <attribute name="title">
       <string>ComplexSat</string>
      </attribute>
-     <widget class="QPushButton" name="applyCompSatBtn">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>50</y>
-        <width>211</width>
-        <height>27</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Apply</string>
-      </property>
-     </widget>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
@@ -551,11 +538,29 @@
      <x>0</x>
      <y>0</y>
      <width>946</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuSimulation_samples">
+    <property name="title">
+     <string>Simulation samples</string>
+    </property>
+    <addaction name="actionPID_sim"/>
+    <addaction name="actionDNN_sim"/>
+   </widget>
+   <addaction name="menuSimulation_samples"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionPID_sim">
+   <property name="text">
+    <string>PID sim</string>
+   </property>
+  </action>
+  <action name="actionDNN_sim">
+   <property name="text">
+    <string>DNN sim</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>

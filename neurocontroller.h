@@ -14,6 +14,12 @@
 #include "simulation/controlledsim.h"
 #include "ui/trainwizzard.h"
 
+#if defined(Q_OS_LINUX)
+   #define PATH_DEPTH 1
+#elif defined(Q_OS_MACOS)
+   #define PATH_DEPTH 4
+#endif
+
 
 
 QT_BEGIN_NAMESPACE
@@ -33,6 +39,7 @@ private:
     Satellite* sat;
     double scaling;
     QString * netFile;
+    int path_depth;
 
 
 public:
@@ -56,6 +63,12 @@ private slots:
     void on_loadNet_clicked();
 
     void on_saveDnn_clicked();
+
+    void formSim();
+
+    void on_actionPID_sim_triggered();
+
+    void on_actionDNN_sim_triggered();
 
 private:
     Ui::MainWindow *ui;
