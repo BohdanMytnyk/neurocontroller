@@ -9,15 +9,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     path_depth = PATH_DEPTH;
 
+    // setup the graph
     ui->qPlot->addGraph();
     ui->qPlot->graph(0)->setPen(QPen(Qt::red));
     ui->qPlot->graph(0)->setName("speed");
-
-   ui->qPlot->legend->setVisible(true);
-   QFont legendFont = font();
-   legendFont.setPointSize(9);
-   ui->qPlot->legend->setFont(legendFont);
-   ui->qPlot->legend->setBrush(QBrush(QColor(255, 255, 255, 230)));
+    ui->qPlot->legend->setVisible(true);
+    QFont legendFont = font(); // MainWindow's font
+    legendFont.setPointSize(9); // make it smaller
+    ui->qPlot->legend->setFont(legendFont);
+    ui->qPlot->legend->setBrush(QBrush(QColor(255, 255, 255, 230)));
 }
 
 MainWindow::~MainWindow()
@@ -31,6 +31,7 @@ void MainWindow::on_startSimulation_clicked()
     ui->statusLabel->setText("simulation...");
     ui->statusLabel->repaint();
 
+    //get Satellite
     readSat();
 
     //Construct simulation (get controller)
@@ -63,12 +64,13 @@ void MainWindow::on_startSimulation_clicked()
     std::vector<double> t_values = simulation->getT_values();
     std::vector<double> speed_values = simulation->getSpeed_values();
 
-    QVector<double> t(n), speed(n);
+    QVector<double> t(n), speed(n); // get values time and speed
     for (int i=0; i<n; i++){
         t[i] = t_values[i];
         speed[i] = speed_values[i];
     }
 
+    // set values for drowing plot
     ui->qPlot->graph(0)->setData(t, speed);
     ui->qPlot->xAxis->setLabel("t");
     ui->qPlot->yAxis->setLabel("speed");
@@ -79,18 +81,17 @@ void MainWindow::on_startSimulation_clicked()
 
 void MainWindow::readSat()
 {
-
-
-    if (ui->tabWidget->currentIndex() == 0) {
+    if (ui->tabWidget->currentIndex() == 0) { // cubesat
         double massCube = ui->cubesatMassEdit->text().toDouble();
         double lenght = ui->cubesatLengthEdit->text().toDouble();
         satellite = new Cubesat(massCube, lenght);
-    } else {
+    } else {                                  // complexsat
         double inertia;
         inertia = ui->ComplexSatInteria->text().toDouble();
         satellite = new ComplexSat(inertia);
     }
 
+    // get weel
     double mass = ui->wheelMassEdit->text().toDouble();
     double radius = ui->wheelRadiusEdit->text().toDouble();
     double maxSpeed = ui->wheelMaxSpeedEdit->text().toDouble();
@@ -98,8 +99,6 @@ void MainWindow::readSat()
 
     Wheel* wheel = new Wheel(mass,radius,maxSpeed,maxTorque);
     satellite->setWheel(wheel);
-    // Get Wheel wheel_frame
-    //sat->getWheel(ui->wheel_frame->value<Wheel*>());
 }
 
 
