@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    path_depth = PATH_DEPTH;
 
     ui->qPlot->addGraph();
     ui->qPlot->graph(0)->setPen(QPen(Qt::red));
@@ -180,4 +181,55 @@ void MainWindow::on_saveDnn_clicked()
     if(qFileName.isEmpty()) return;
 
     dnn->save(strcat(qFileName.toLocal8Bit().data(),(".dnn")));
+}
+
+void MainWindow::formSim(){
+    this->ui->cubesatMassEdit->setText("500");
+    this->ui->cubesatLengthEdit->setText("1");
+
+    this->ui->wheelMassEdit->setText("9.5");
+    this->ui->wheelMaxSpeedEdit->setText("7300");
+    this->ui->wheelRadiusEdit->setText("0.347");
+    this->ui->wheelMaxTorqueEdit->setText("0.17");
+
+    this->ui->durationEdit->setText("60");
+
+    Command* cmd = new Command(0.04, 0);
+    QString str = QString("%1s, %2rad/s").arg("0").arg("0.04");
+    ui->cmdComboBox->addItem(str, QVariant::fromValue(cmd));
+}
+
+void MainWindow::on_actionPID_sim_triggered()
+{
+    formSim();
+    ui->tab_sim->setCurrentIndex(0);
+
+    this->ui->kp->setText("500");
+    this->ui->ki->setText("0");
+    this->ui->kd->setText("20");
+}
+
+void MainWindow::on_actionDNN_sim_triggered()
+{
+    formSim();
+    ui->tab_sim->setCurrentIndex(1);
+    string path = QCoreApplication::applicationDirPath().toStdString();
+
+    while(true){
+        if(path[path.length()-1] == '/')
+            path_depth -= 1;
+
+        path.erase(path.length()-1);
+
+        if(path_depth == 0){
+            path_depth = PATH_DEPTH;
+            break;
+        }
+    }
+
+    if(path.substr(path.length()-15, 15) != "neurocontroller")
+        path+= "/neurocontroller";
+
+    netFile = new QString(QString::fromStdString(path) + "/sampleDNN.dnn");
+    ui->dnnStatus->setText("Sample DNN loaded.");
 }
