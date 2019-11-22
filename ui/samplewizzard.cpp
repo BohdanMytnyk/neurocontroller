@@ -1,5 +1,6 @@
 #include "samplewizzard.h"
 #include "ui_samplewizzard.h"
+#include "trainwizzard.h"
 
 SampleWizzard::SampleWizzard(QWidget *parent, Satellite *sat, double scaling) :
     QDialog(parent),
@@ -7,6 +8,7 @@ SampleWizzard::SampleWizzard(QWidget *parent, Satellite *sat, double scaling) :
 {
     ui->setupUi(this);
     this->sat = sat;
+    samples_ready = false;
 }
 
 SampleWizzard::~SampleWizzard()
@@ -16,14 +18,18 @@ SampleWizzard::~SampleWizzard()
 
 void SampleWizzard::generate(){
     int n = ui->number->text().toInt();
-    gen = new SampleGenerator(sat);
-    samples = gen->generate(n);
-    ui->generateStatus->setText("generated");
+    if(n != 0)
+    {
+        ui->generateStatus->setText("generating");
+        gen = new SampleGenerator(sat);
+        samples = gen->generate(n);
+        ui->generateStatus->setText("generated");
+        samples_ready = true;
+    }
 }
 
 void SampleWizzard::on_generate_clicked()
 {
-    ui->generateStatus->setText("generating");
     QtConcurrent::run(this,&SampleWizzard::generate);
 }
 
