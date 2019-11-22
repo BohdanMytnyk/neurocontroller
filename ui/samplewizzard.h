@@ -22,7 +22,7 @@ public:
     explicit SampleWizzard(QWidget *parent = nullptr, Satellite *sat = nullptr, double scaling =INPUT_SCALING);
     ~SampleWizzard();
     vector<Sample> getSamples();
-//    void saveSamples();
+    bool samples_ready;
 
 private slots:
     void on_generate_clicked();

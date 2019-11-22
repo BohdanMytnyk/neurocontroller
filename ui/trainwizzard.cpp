@@ -22,9 +22,11 @@ void TrainWizzard::on_generate_clicked()
     sampleWizzard->setModal(true);
     sampleWizzard->exec();
 
-    ui->samplesStatus->setText("Samples ready.");
-    samples = sampleWizzard->getSamples();
-    ui->start->setEnabled(true);
+    if(sampleWizzard->samples_ready){
+        ui->samplesStatus->setText("Samples ready.");
+        samples = sampleWizzard->getSamples();
+        ui->start->setEnabled(true);
+    }
 }
 
 void TrainWizzard::on_start_clicked()
